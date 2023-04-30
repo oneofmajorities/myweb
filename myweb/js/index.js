@@ -1,5 +1,21 @@
+/**--------导航栏显示隐藏----------------- */
+function navHidden() {
+    const nav = document.querySelector('nav');
+    const aAll = nav.querySelectorAll('a');
 
-
+    window.addEventListener('wheel',()=>{
+        if(window.scrollY < 1044){
+            aAll.forEach(a=>{
+                a.style.color = 'rgba(240, 240, 240, 1)';
+            })
+        }else {
+            aAll.forEach(a=>{
+                a.style.color = 'black';
+            })
+        }
+    })
+}
+navHidden();
 
 /*-------------时钟-----------------*/
 function updateClock() {
@@ -37,28 +53,30 @@ hiddenPage();
 /*-------------隐藏页面选项切换-------------- */
 function hiddenPageOptionSwitch() {
     const container = document.querySelector('.container');
-    const options = Array.from(container.querySelectorAll('.option'))
-    
+    const options = Array.from(container.querySelectorAll('.option'));
+
     options.forEach(option => {
         option.addEventListener('mouseenter', () => {
-            let colorChange = container.querySelector('.colorChange')
-            colorChange.classList.remove('colorChange')
-            option.classList.add('colorChange')
-            
-            //解决选项和盒子关联和过渡
-            let optionNumber = option.dataset.id
-            let choosed = container.querySelector(`.box${optionNumber}`)
-            if(choosed.classList.contains('active')) return;
+            let colorChange = container.querySelector('.colorChange');
+            colorChange.classList.remove('colorChange');
+            option.classList.add('colorChange');
 
-            let active = container.querySelector('.active')
-            active.style.opacity = 0;
+            //解决选项和盒子关联和过渡
+            let optionNumber = option.dataset.id;
+            let choosed = container.querySelector(`.box${optionNumber}`);
+            if (choosed.classList.contains('active')) return;
+
+            let active = container.querySelectorAll('.active');
+            active.forEach(e => {
+                e.style.opacity = 0;
+                setTimeout(() => {
+                    e.classList.remove('active');
+                }, 300);
+            })
+            let box = container.querySelector(`.box${optionNumber}`);
+            box.classList.add('active');
             setTimeout(() => {
-                active.classList.remove('active')
-            }, 300);
-            let box = container.querySelector(`.box${optionNumber}`)
-            box.classList.add('active')
-            setTimeout(() => {
-                box.style.opacity = 1
+                box.style.opacity = 1;
             }, 300);
 
         })
@@ -68,17 +86,17 @@ hiddenPageOptionSwitch();
 
 /*-------------隐藏页面第三个盒子字母消失----------*/
 function hiddenPageLetterDisappear(params) {
-    const box3Contain = document.querySelector('.box3')
-    const hidden = box3Contain.querySelector('.hidden')
-    const letters = box3Contain.querySelectorAll('#letter')
-    const buttom = box3Contain.querySelector('.desert-buttom')
+    const box3Contain = document.querySelector('.box3');
+    const hidden = box3Contain.querySelector('.hidden');
+    const letters = box3Contain.querySelectorAll('#letter');
+    const buttom = box3Contain.querySelector('.desert-buttom');
 
 
     buttom.addEventListener('mouseenter', function (e) {
-        hidden.classList.add('appear')
+        hidden.classList.add('appear');
 
         letters.forEach(letter => {
-            letter.classList.add('transparent')
+            letter.classList.add('transparent');
         })
     })
 }
@@ -115,7 +133,7 @@ function hiddenPageImageSlide() {
         e.preventDefault();//保证拖拽正常运行
         const x = e.pageX - box4.offsetLeft;
         const walk = (x - startX) * 3;
-        
+
         box4.scrollLeft = scrollLeft - walk;
     });
 }
@@ -130,11 +148,11 @@ function section1BackgroundAndSlidderMove() {
 
     let isDragging = false;
 
-    button.addEventListener("mousedown", e=> {
+    button.addEventListener("mousedown", e => {
         isDragging = true;
     });
 
-    document.addEventListener("mouseup", () =>{
+    document.addEventListener("mouseup", () => {
         isDragging = false;
     });
 
@@ -145,18 +163,19 @@ function section1BackgroundAndSlidderMove() {
         const leftPoint = slider.offsetLeft - slider.offsetWidth / 6;
         const rightPoint = slider.offsetLeft + slider.offsetWidth / 6;
         if (e.pageX < leftPoint) {
-            button.style.left = '0px';
+            button.style.left = '21px';
             bgAll.style.left = '0%';
             bgActor.style.left = '0%';
             bgActor.style.transform = 'translateX(0%)';
         }
-        else if(e.pageX > rightPoint) {
-            button.style.left = '347px';
+        else if (e.pageX > rightPoint) {
+            button.style.left = '321px';
             bgAll.style.left = '-200%';
             bgActor.style.left = '100%';
             bgActor.style.transform = 'translateX(-100%)';
-        }else{
-            button.style.left = '175px'
+        } else {
+            button.style.left = '50%'
+            button.style.transform = 'translateX(-50%)'
             bgAll.style.left = '-100%';
             bgActor.style.left = '50%';
             bgActor.style.transform = 'translateX(-50%)';
@@ -167,3 +186,34 @@ function section1BackgroundAndSlidderMove() {
 }
 section1BackgroundAndSlidderMove();
 
+/**--------------------------卷轴和五个亮点------------------- */
+function scrollAndPapers() {
+    const bgAll = document.querySelector('.bg-all');
+    const points = Array.from(bgAll.querySelectorAll('.point'));
+    const papers = Array.from(bgAll.querySelectorAll('.paper'))
+    const scroll = bgAll.querySelector('.scroll');
+
+    points.forEach(point => {
+        point.addEventListener('click', () => {
+            let pointNumber = point.dataset.id;
+            let choosed = bgAll.querySelector(`.paper${pointNumber}`);
+
+            choosed.classList.add("active");
+            setTimeout(() => {
+                choosed.style.width = '1070px';
+            }, 0);
+        })
+    })
+    papers.forEach(paper=>{
+        paper.addEventListener('click',(e)=>{
+            console.log(paper.offsetLeft);
+            paper.style.width = '50px';
+            setTimeout(() => {
+                paper.classList.remove('active');
+            }, 1500);
+        })
+    })
+
+
+}
+scrollAndPapers();

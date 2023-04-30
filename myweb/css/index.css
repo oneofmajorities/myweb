@@ -2,6 +2,7 @@ header {
   z-index: 10;
   position: relative;
   height: 1080px;
+  width: 100%;
   background: url(../images/clock/clock.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -45,8 +46,8 @@ header .clock-center {
 header #hidden-page {
   position: fixed;
   top: 0;
-  left: -120%;
-  width: 1920px;
+  left: -100%;
+  width: 100%;
   height: 1080px;
   background: url(../images/hidden-page/background.png);
   transition-property: left;
@@ -63,12 +64,12 @@ header .container .options {
   flex-direction: row;
   position: relative;
   top: 189px;
-  left: 159px;
+  left: 10%;
 }
 header .container .options > div {
   position: relative;
-  margin-right: 70px;
-  width: 255px;
+  margin-right: 4%;
+  width: 13%;
   height: 50px;
   font-size: 25px;
   line-height: 56px;
@@ -106,14 +107,13 @@ header .container .box1 {
   flex-direction: row;
   position: relative;
   top: 274px;
-  left: 159px;
-  width: 1700px;
-  height: 550px;
+  left: 10%;
+  height: 600px;
 }
 header .container .box1 div {
-  width: 255px;
-  height: 550px;
-  margin-right: 69px;
+  width: 13%;
+  height: 540px;
+  margin-right: 4%;
 }
 header .container .box1 .one {
   background: url(../images/hidden-page/box1-data1.png);
@@ -173,12 +173,13 @@ header .container .box1 .five:hover {
 header .container .box2 {
   display: none;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   position: relative;
   top: 333px;
-  left: 159px;
-  width: 1595px;
-  height: 520px;
+  left: 10%;
+  width: 80%;
+  height: 600px;
   text-align: center;
   opacity: 0;
 }
@@ -397,12 +398,11 @@ header .container .box3 {
   display: none;
   position: relative;
   top: 323px;
-  left: 159px;
-  width: 1632px;
-  height: 550px;
+  left: 10%;
+  width: 84%;
+  height: 600px;
   color: #4d5354;
   font-size: 26px;
-  background-color: green;
   background: url(../images/hidden-page/desert.png);
   background-repeat: no-repeat;
   opacity: 0;
@@ -419,18 +419,18 @@ header .container .box3 .rt {
 }
 header .container .box3 .lb {
   position: absolute;
-  bottom: 0;
+  bottom: 50px;
   left: 0;
 }
 header .container .box3 .rb {
   position: absolute;
-  bottom: 0;
+  bottom: 50px;
   right: 66px;
 }
 header .container .box3 .I {
   position: absolute;
   top: 140px;
-  left: 1456px;
+  right: 135px;
   color: #ddd;
 }
 header .container .box3 .moon {
@@ -444,17 +444,18 @@ header .container .box3 .moon {
 }
 header .container .box3 .desert-buttom {
   position: absolute;
-  left: 1503px;
+  right: 47px;
   top: 149px;
   width: 50px;
   height: 25px;
   background: url(../images/hidden-page/desert-buttom.png);
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 header .container .box3 .hidden {
   display: flex;
   position: absolute;
-  left: 1373px;
+  right: 106px;
   top: 140px;
   height: 30px;
   width: 120px;
@@ -485,7 +486,7 @@ header .container .box3 .clothes {
   width: 111px;
   height: 130px;
   animation-name: clothes;
-  animation-duration: 4s;
+  animation-duration: 8s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
@@ -511,7 +512,7 @@ header .container .box3 .tails {
   width: 56px;
   height: 71px;
   animation-name: tails;
-  animation-duration: 4s;
+  animation-duration: 8s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
@@ -535,7 +536,7 @@ header .container .box4 {
   position: relative;
   top: 323px;
   left: 0;
-  width: 1920px;
+  width: 100%;
   height: 550px;
   overflow: hidden;
   opacity: 0;
@@ -563,6 +564,7 @@ nav {
   height: 70px;
   width: 100%;
   background-color: transparent;
+  transition: 1s ease;
 }
 nav .option {
   position: absolute;
@@ -578,6 +580,7 @@ nav .option a {
   font-weight: 500;
   margin: 25px;
   color: #f0f0f0;
+  transition: color 0.5s linear;
 }
 nav .menu-button {
   position: absolute;
@@ -596,7 +599,6 @@ nav .menu-button {
   left: -100%;
   height: 100%;
   width: 300%;
-  cursor: grab;
   transition: left 1s ease;
 }
 .bg-all .left {
@@ -620,14 +622,119 @@ nav .menu-button {
   background-size: cover;
   background-repeat: no-repeat;
 }
+.bg-all .points .point1,
+.bg-all .points .point2,
+.bg-all .points .point3,
+.bg-all .points .point4,
+.bg-all .points .point5 {
+  cursor: pointer;
+  position: absolute;
+  width: 23px;
+  height: 24px;
+  background: url(../images/section1-bg/lp.png);
+}
+.bg-all .points .point1 {
+  left: 1468px;
+  top: 824px;
+}
+.bg-all .points .point2 {
+  left: 1540px;
+  top: 522px;
+}
+.bg-all .points .point3 {
+  left: 1750px;
+  top: 410px;
+}
+.bg-all .points .point4 {
+  left: 1130px;
+  top: 460px;
+}
+.bg-all .points .point5 {
+  left: 1668px;
+  top: 743px;
+}
+.bg-all .paper1 {
+  z-index: 1;
+  display: none;
+  position: absolute;
+  left: 648px;
+  top: 180px;
+  width: 50px;
+  height: 700px;
+  background: url(../images/section1-bg/paper-1.png);
+  transition: width 1.5s ease;
+}
+.bg-all .paper2 {
+  z-index: 1;
+  display: none;
+  position: absolute;
+  left: 648px;
+  top: 180px;
+  width: 50px;
+  height: 700px;
+  background: url(../images/section1-bg/paper-2.png);
+  transition: width 1.5s ease;
+}
+.bg-all .paper3 {
+  z-index: 1;
+  display: none;
+  position: absolute;
+  left: 648px;
+  top: 180px;
+  width: 50px;
+  height: 700px;
+  background: url(../images/section1-bg/paper-3.png);
+  transition: width 1.5s ease;
+}
+.bg-all .paper4 {
+  z-index: 1;
+  display: none;
+  position: absolute;
+  left: 648px;
+  top: 180px;
+  width: 50px;
+  height: 700px;
+  background: url(../images/section1-bg/paper-3.png);
+  transition: width 1.5s ease;
+}
+.bg-all .paper5 {
+  z-index: 1;
+  display: none;
+  position: absolute;
+  left: 648px;
+  top: 180px;
+  width: 50px;
+  height: 700px;
+  background: url(../images/section1-bg/paper-3.png);
+  transition: width 1.5s ease;
+}
+.bg-all .paper1.active,
+.bg-all .paper2.active,
+.bg-all .paper3.active,
+.bg-all .paper4.active,
+.bg-all .paper5.active {
+  display: block;
+}
+.bg-all .paper1.active .scroll,
+.bg-all .paper2.active .scroll,
+.bg-all .paper3.active .scroll,
+.bg-all .paper4.active .scroll,
+.bg-all .paper5.active .scroll {
+  position: absolute;
+  top: 0;
+  right: -100px;
+  width: 266px;
+  height: 710px;
+  background: url(../images/section1-bg/scroll.png);
+}
 .bg-actor {
   z-index: 0;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  top: 130px;
-  width: 816px;
-  height: 787px;
+  top: 334px;
+  width: 658px;
+  height: 632px;
   background: url(../images/section1-bg/bg-actor.png);
   background-size: contain;
   transition: all 1s ease;
@@ -637,14 +744,15 @@ nav .menu-button {
   left: 50%;
   transform: translateX(-50%);
   top: 90%;
-  width: 391px;
-  height: 52px;
+  width: 341px;
+  height: 46px;
   background: url(../images/section1-bg/slider.png);
 }
 .slider .button {
   position: absolute;
-  top: 0;
-  left: 175px;
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 44px;
   height: 51px;
   background: url(../images/section1-bg/button.png);
@@ -653,7 +761,7 @@ nav .menu-button {
 }
 /*------------------撑开背景图的盒子------------------------*/
 .section-1 {
-  height: 1000px;
+  height: 880px;
   width: 90%;
   visibility: hidden;
   margin: auto;
