@@ -1,39 +1,9 @@
-* {
-  z-index: 3;
-}
 header {
+  z-index: 10;
   position: relative;
   height: 1080px;
   background: url(../images/clock/clock.png);
   background-repeat: no-repeat;
-  background-size: cover;
-}
-header nav {
-  z-index: 1000;
-  position: relative;
-  height: 70px;
-  background-color: transparent;
-}
-header nav .option {
-  position: absolute;
-  right: 0;
-  width: 1000px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-header nav .option a {
-  font-size: 24px;
-  font-weight: 500;
-  margin: 25px;
-  color: #f0f0f0;
-}
-header nav .menu-button {
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  background: url(../images/hidden-page/button.png);
   background-size: cover;
 }
 header .clock {
@@ -73,7 +43,6 @@ header .clock-center {
   background: url(../images/clock/clock-center.png);
 }
 header #hidden-page {
-  z-index: 999;
   position: fixed;
   top: 0;
   left: -120%;
@@ -130,7 +99,7 @@ header .container .options div.colorChange::after {
   width: 100%;
 }
 header .container .box {
-  transition: all 1s ;
+  transition: all 1s;
 }
 header .container .box1 {
   display: none;
@@ -211,6 +180,7 @@ header .container .box2 {
   width: 1595px;
   height: 520px;
   text-align: center;
+  opacity: 0;
 }
 header .container .box2 > div {
   display: flex;
@@ -435,6 +405,7 @@ header .container .box3 {
   background-color: green;
   background: url(../images/hidden-page/desert.png);
   background-repeat: no-repeat;
+  opacity: 0;
 }
 header .container .box3 .lt {
   position: absolute;
@@ -504,7 +475,7 @@ header .container .box3 .rb.transparent {
   transition: color 2s ease;
   color: transparent;
 }
-header .container .box3 .hidden.active {
+header .container .box3 .hidden.appear {
   color: #ddd;
 }
 header .container .box3 .clothes {
@@ -567,6 +538,7 @@ header .container .box4 {
   width: 1920px;
   height: 550px;
   overflow: hidden;
+  opacity: 0;
 }
 header .container .box4 .box4-image {
   width: auto;
@@ -583,9 +555,40 @@ header .container .box4.active {
   display: flex;
   transition: all 0.5s;
 }
+nav {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 100%;
+  background-color: transparent;
+}
+nav .option {
+  position: absolute;
+  right: 0;
+  width: 1000px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+nav .option a {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 25px;
+  color: #f0f0f0;
+}
+nav .menu-button {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  background: url(../images/hidden-page/button.png);
+  background-size: cover;
+}
 /*----------------------------全屏背景图------------------------------*/
 .bg-all {
-  z-index: -1;
+  z-index: 0;
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -593,7 +596,7 @@ header .container .box4.active {
   left: -100%;
   height: 100%;
   width: 300%;
-  background-color: pink;
+  cursor: grab;
   transition: left 1s ease;
 }
 .bg-all .left {
@@ -617,8 +620,19 @@ header .container .box4.active {
   background-size: cover;
   background-repeat: no-repeat;
 }
+.bg-actor {
+  z-index: 0;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 130px;
+  width: 816px;
+  height: 787px;
+  background: url(../images/section1-bg/bg-actor.png);
+  background-size: contain;
+  transition: all 1s ease;
+}
 .slider {
-  z-index: 1;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
@@ -630,23 +644,25 @@ header .container .box4.active {
 .slider .button {
   position: absolute;
   top: 0;
-  left: 163px;
+  left: 175px;
   width: 44px;
   height: 51px;
   background: url(../images/section1-bg/button.png);
   transition: left 1s ease;
   cursor: grab;
 }
-/*------------------模块一------------------------*/
+/*------------------撑开背景图的盒子------------------------*/
 .section-1 {
-  height: 2000px;
+  height: 1000px;
   width: 90%;
+  visibility: hidden;
   margin: auto;
   background-color: rgba(0, 0, 0, 0.2);
 }
-/*-----------------模块二-------------------*/
+/*-----------------模块一-------------------*/
 .project1 {
   height: 1747px;
+  position: relative;
   background-color: #fff;
 }
 .project1 .top {
@@ -765,6 +781,7 @@ header .container .box4.active {
 /*-----------模块三---------*/
 .project2 {
   height: 1500px;
+  position: relative;
   background-color: #fff;
 }
 .project2 .top {
@@ -892,6 +909,7 @@ header .container .box4.active {
 }
 /*-----------footer---------*/
 footer {
+  position: relative;
   height: 235px;
   border-top: 2px solid #919191;
   background-color: #121212;

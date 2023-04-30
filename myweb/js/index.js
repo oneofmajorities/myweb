@@ -1,4 +1,7 @@
-//时钟
+
+
+
+/*-------------时钟-----------------*/
 function updateClock() {
     const now = new Date();
     const hour = now.getHours() % 12; // 转换为12小时制
@@ -34,26 +37,26 @@ hiddenPage();
 /*-------------隐藏页面选项切换-------------- */
 function hiddenPageOptionSwitch() {
     const container = document.querySelector('.container');
-    const options = Array.from(container.querySelectorAll('#option'))
-    const boxs = container.querySelectorAll('.box')
-
+    const options = Array.from(container.querySelectorAll('.option'))
+    
     options.forEach(option => {
         option.addEventListener('mouseenter', () => {
-            options.forEach(f => {
-                f.classList.remove('colorChange')
-            })
+            let colorChange = container.querySelector('.colorChange')
+            colorChange.classList.remove('colorChange')
             option.classList.add('colorChange')
+            
+            //解决选项和盒子关联和过渡
+            let optionNumber = option.dataset.id
+            let choosed = container.querySelector(`.box${optionNumber}`)
+            if(choosed.classList.contains('active')) return;
 
-
-
-            boxs.forEach(b => {
-                b.style.opacity = 0
-                b.classList.remove('active')
-            })
-            const optionNumber = option.dataset.id
-            const box = container.querySelector(`.box${optionNumber}`)
+            let active = container.querySelector('.active')
+            active.style.opacity = 0;
+            setTimeout(() => {
+                active.classList.remove('active')
+            }, 300);
+            let box = container.querySelector(`.box${optionNumber}`)
             box.classList.add('active')
-
             setTimeout(() => {
                 box.style.opacity = 1
             }, 300);
@@ -71,8 +74,8 @@ function hiddenPageLetterDisappear(params) {
     const buttom = box3Contain.querySelector('.desert-buttom')
 
 
-    buttom.addEventListener('mouseenter', function () {
-        hidden.classList.add('active')
+    buttom.addEventListener('mouseenter', function (e) {
+        hidden.classList.add('appear')
 
         letters.forEach(letter => {
             letter.classList.add('transparent')
@@ -123,6 +126,7 @@ function section1BackgroundAndSlidderMove() {
     const slider = document.querySelector(".slider");
     const button = document.querySelector(".button");
     const bgAll = document.querySelector(".bg-all");
+    const bgActor = document.querySelector(".bg-actor");
 
     let isDragging = false;
 
@@ -143,13 +147,19 @@ function section1BackgroundAndSlidderMove() {
         if (e.pageX < leftPoint) {
             button.style.left = '0px';
             bgAll.style.left = '0%';
+            bgActor.style.left = '0%';
+            bgActor.style.transform = 'translateX(0%)';
         }
         else if(e.pageX > rightPoint) {
             button.style.left = '347px';
             bgAll.style.left = '-200%';
+            bgActor.style.left = '100%';
+            bgActor.style.transform = 'translateX(-100%)';
         }else{
-            button.style.left = '163px'
+            button.style.left = '175px'
             bgAll.style.left = '-100%';
+            bgActor.style.left = '50%';
+            bgActor.style.transform = 'translateX(-50%)';
         }
     });
 

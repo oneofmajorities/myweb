@@ -1,50 +1,15 @@
 // out: ./
 //width:1536  height:864
-*{
-    z-index: 3;
-}
 
-// 头部和导航
+// 头部
 header {
+    z-index: 10;
     position: relative;
     height: 1080px;
     background: url(../images/clock/clock.png);
     background-repeat: no-repeat;
     background-size: cover;
 
-    nav {
-        z-index: 1000;
-        position: relative;
-        height: 70px;
-        background-color: transparent;
-
-        .option {
-            position: absolute;
-            right: 0;
-            width: 1000px;
-            height: 70px;
-            // ps
-            // background-color: red;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-
-            a {
-                font-size: 24px;
-                font-weight: 500;
-                margin: 25px;
-                color: rgba(240, 240, 240, 1);
-            }
-        }
-        .menu-button {
-            position: absolute;
-            height: 40px;
-            width: 40px;
-            background: url(../images/hidden-page/button.png);
-            background-size: cover;
-        }
-    }
-    
 
     .clock {
         display: flex;
@@ -90,7 +55,6 @@ header {
     }
 
     #hidden-page {
-        z-index: 999;
         position: fixed;
         top: 0;
         left: -120%;
@@ -156,9 +120,10 @@ header {
             }
         }
 
-        .box{
-            transition: all 1s ;
+        .box {
+            transition: all 1s;
         }
+
         .box1 {
             display: none;
             flex-direction: row;
@@ -255,6 +220,8 @@ header {
             width: 1595px;
             height: 520px;
             text-align: center;
+            //关于盒子渐渐出现
+            opacity: 0;
 
             //ps
             // background-color: rgb(226, 193, 199);
@@ -578,6 +545,9 @@ header {
             background: url(../images/hidden-page/desert.png);
             background-repeat: no-repeat;
 
+            //关于盒子渐渐出现
+            opacity: 0;
+
             .lt {
                 position: absolute;
                 top: 0;
@@ -657,7 +627,7 @@ header {
                 color: transparent;
             }
 
-            .hidden.active {
+            .hidden.appear {
                 color: #ddd;
             }
 
@@ -735,6 +705,9 @@ header {
             height: 550px;
             overflow: hidden;
 
+            //关于盒子渐渐出现
+            opacity: 0;
+
             .box4-image {
                 width: auto;
                 height: 550px;
@@ -756,9 +729,48 @@ header {
     }
 }
 
+//导航
+nav {
+    z-index: 999;
+    position: fixed;
+    // visibility: hidden;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    background-color: transparent;
+
+    .option {
+        position: absolute;
+        right: 0;
+        width: 1000px;
+        height: 70px;
+        // ps
+        // background-color: red;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        a {
+            font-size: 24px;
+            font-weight: 500;
+            margin: 25px;
+            color: rgba(240, 240, 240, 1);
+        }
+    }
+
+    .menu-button {
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        background: url(../images/hidden-page/button.png);
+        background-size: cover;
+    }
+}
+
 /*----------------------------全屏背景图------------------------------*/
 .bg-all {
-    z-index: -1;
+    z-index: 0;
     display: flex;
     flex-direction: row;
     position: fixed;
@@ -766,8 +778,10 @@ header {
     left: -100%;
     height: 100%;
     width: 300%;
+    cursor: grab;
+
     //ps
-    background-color: pink;
+    // background-color: pink;
 
     transition: left 1s ease;
 
@@ -798,8 +812,21 @@ header {
         background-repeat: no-repeat;
     }
 }
+
+.bg-actor {
+    z-index: 0;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 130px;
+    width: 816px;
+    height: 787px;
+    background: url(../images/section1-bg/bg-actor.png);
+    background-size: contain;
+    transition: all 1s ease;
+}
+
 .slider {
-    z-index: 1;
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
@@ -807,10 +834,11 @@ header {
     width: 391px;
     height: 52px;
     background: url(../images/section1-bg/slider.png);
+
     .button {
         position: absolute;
         top: 0;
-        left: 163px;
+        left: 175px;
         width: 44px;
         height: 51px;
         background: url(../images/section1-bg/button.png);
@@ -819,38 +847,22 @@ header {
     }
 }
 
-/*------------------模块一------------------------*/
+
+
+/*------------------撑开背景图的盒子------------------------*/
 .section-1 {
-    height: 2000px;
+    height: 1000px;
     width: 90%;
+    visibility: hidden;
     margin: auto;
-    background-color: rgba(0, 0, 0, .2);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*-----------------模块二-------------------*/
+/*-----------------模块一-------------------*/
 .project1 {
     height: 1747px;
+    position: relative;
     background-color: #fff;
     // background-color: orange;
 
@@ -1010,6 +1022,7 @@ header {
 /*-----------模块三---------*/
 .project2 {
     height: 1500px;
+    position: relative;
     background-color: #fff;
     // background-color: orange;
 
@@ -1168,6 +1181,7 @@ header {
 
 /*-----------footer---------*/
 footer {
+    position: relative;
     height: 235px;
     border-top: 2px solid rgba(145, 145, 145, 1);
     ;

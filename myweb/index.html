@@ -10,18 +10,10 @@
     <link rel="stylesheet" href="./css/index.css">
     <script defer="defer" src="./js/index.js"></script>
 </head>
+
 <body>
-    <!-- 头部和导航 -->
+    <!-- 头部 -->
     <header>
-        <nav>
-            <div class="option">
-                <a href="#">AI</a>
-                <a href="#">观点</a>
-                <a href="#">框架</a>
-                <a href="#">作品</a>
-            </div>
-            <button class="menu-button" id="menu-button"></button>
-        </nav>
         <div class="clock">
             <img src="./images/clock/hour.png" alt="" class="hour-hand">
             <img src="./images/clock/minute.png" alt="" class="minute-hand">
@@ -32,19 +24,19 @@
         <!-- 隐藏页面 -->
         <div class="container" id="hidden-page">
             <div class="options">
-                <div class="colorChange option1" id="option" data-id="1">变迁</div>
-                <div class="option2" id="option" data-id="2">项目时间轴</div>
-                <div class="option3" id="option" data-id="3">进行中</div>
-                <div class="option4" id="option" data-id="4">未完成的想法</div>
+                <div class="colorChange option" data-id="1">变迁</div>
+                <div class="option" data-id="2">项目时间轴</div>
+                <div class="option" data-id="3">进行中</div>
+                <div class="option" data-id="4">未完成的想法</div>
             </div>
-            <div class="box1 active box">
+            <div class="box1 active">
                 <div class="one"><a href="#"></a></div>
                 <div class="two"><a href="#"></a></div>
                 <div class="three"><a href="#"></a></div>
                 <div class="four"><a href="#"></a></div>
                 <div class="five"><a href="#"></a></div>
             </div>
-            <div class="box2 box">
+            <div class="box2 ">
                 <div class="one">
                     <a href="#">亨达利亨达利</a>
                     <div class="block4"></div>
@@ -110,7 +102,7 @@
                     <div class="block3"></div>
                 </div>
             </div>
-            <div class="box3 box">
+            <div class="box3 ">
                 <div class="lt" id="letter">A</div>
                 <div class="rt" id="letter">A</div>
                 <div class="lb" id="letter">G</div>
@@ -129,11 +121,21 @@
                 <div class="clothes"></div>
                 <div class="tails"></div>
             </div>
-            <div class="box4 box">
+            <div class="box4 ">
                 <img class="box4-image" src="./images/hidden-page/longPicture.png">
             </div>
         </div>
     </header>
+    <!-- 导航 -->
+    <nav>
+        <div class="option">
+            <a href="#">AI</a>
+            <a href="#">观点</a>
+            <a href="#">框架</a>
+            <a href="#">作品</a>
+        </div>
+        <button class="menu-button" id="menu-button"></button>
+    </nav>
 
     <!-- ------------全屏背景图------------- -->
     <div class="bg-all">
@@ -141,12 +143,15 @@
         <div class="middle"></div>
         <div class="right"></div>
     </div>
+    <div class="bg-actor"></div>
     <div class="slider">
         <div class="button"></div>
     </div>
-    
-    
-    <!-- -------------模块一------------------------------- -->
+
+
+
+
+    <!-- -------------撑开背景图的盒子------------------------------- -->
     <section class="section-1">
 
     </section>
@@ -158,7 +163,7 @@
 
 
 
-<!-- --------------  模块二 ------------------ -->
+    <!-- --------------  模块一 ------------------ -->
     <div class="project1">
         <div class="top">
             <div class="words">如果你用鱼的能力来评价猴子，它一辈子都会认为自己是个失败者。</div>
